@@ -1,0 +1,18 @@
+<?php
+namespace App\Pivots;
+    
+use Illuminate\Database\Eloquent\Relations\Pivot;
+
+class BookStore extends Pivot {
+    
+    public function book()
+    {
+        return $this->belongsTo('App\Models\Book');
+    }
+    
+    public function store()
+    {
+        return $this->belongsTo('App\Models\Store');
+    }
+
+}
