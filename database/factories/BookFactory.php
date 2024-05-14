@@ -24,8 +24,11 @@ class BookFactory extends Factory
      */
     public function definition()
     {
+        $sentence = $this->faker->sentence(5);
+        $title = substr($sentence, 0, strlen($sentence) - 1);
+
         return [
-            'name' => $this->faker->title(),
+            'name' => $title,
             'isbn' => $this->faker->isbn13(),
             'value' => $this->faker->randomNumber(2),
         ];
