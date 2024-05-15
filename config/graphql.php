@@ -75,40 +75,27 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                'book' => App\GraphQL\Queries\Book\BookQuery::class,
+                'books' => App\GraphQL\Queries\Book\BooksQuery::class,
+                'store' => App\GraphQL\Queries\Store\StoreQuery::class,
+                'stores' => App\GraphQL\Queries\Store\StoresQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
+                // 'createBook' => App\GraphQL\Mutations\Book\CreateBookMutation::class,
+                // 'updateBook' => App\GraphQL\Mutations\Book\UpdateBookMutation::class,
+                // 'deleteBook' => App\GraphQL\Mutations\Book\DeleteBookMutation::class,
+                // 'createStore' => App\GraphQL\Mutations\Store\CreateStoreMutation::class,
+                // 'updateStore' => App\GraphQL\Mutations\Store\UpdateStoreMutation::class,
+                // 'deleteStore' => App\GraphQL\Mutations\Store\DeleteStoreMutation::class,
             ],
-            // The types only available in this schema
-            'types' => [
-                // ExampleType::class,
-            ],
-
-            // Laravel HTTP middleware
-            'middleware' => null,
-
-            // Which HTTP methods to support; must be given in UPPERCASE!
-            'method' => ['GET', 'POST'],
-
-            // An array of middlewares, overrides the global ones
-            'execution_middleware' => null,
+            'middleware' => [],
+            'method' => ['get', 'post'],
         ],
     ],
 
-    // The global types available to all schemas.
-    // You can then access it from the facade like this: GraphQL::type('user')
-    //
-    // Example:
-    //
-    // 'types' => [
-    //     App\GraphQL\Types\UserType::class
-    // ]
-    //
-    'types' => [
-        // ExampleType::class,
-        // ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+		'types' => [
+       'Book' => App\GraphQL\Types\BookType::class,
+       'Store' => App\GraphQL\Types\StoreType::class
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.

@@ -2,18 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\UUID;
 
 class Store extends Model
 {
-    use UUID, HasFactory;
-
-    protected $table = 'stores';
-    protected $primaryKey = 'uuid';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    use HasUuids, HasFactory;
 
     /**
      * The attributes that are mass assignable.
